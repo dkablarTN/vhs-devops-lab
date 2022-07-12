@@ -47,7 +47,7 @@ public class MySecurityConfig {
 			.loginProcessingUrl("/login")
 		.and()
 		.logout()
-			.logoutRequestMatcher(new AntPathRequestMatcher("/logut"))
+			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 			.logoutSuccessUrl("/homepage");
 		return http.build();
 	}
