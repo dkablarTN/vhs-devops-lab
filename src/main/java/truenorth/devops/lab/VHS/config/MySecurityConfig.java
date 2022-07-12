@@ -39,7 +39,7 @@ public class MySecurityConfig {
 		.antMatchers("/api/vhs/new").hasRole("ADMIN")
 		.antMatchers("/api/rental/**").authenticated()
 		.antMatchers("/homepage*").permitAll()
-		.antMatchers("logout").authenticated()
+		.antMatchers("/logout").authenticated()
 		.and()
 		.formLogin()
 			.loginPage("/homepage")
