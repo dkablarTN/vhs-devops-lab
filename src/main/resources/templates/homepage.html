@@ -1,0 +1,23 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+
+	<body>
+		<h1>Back to the past</h1>
+		
+		<p>Welcome to the VHS rental service. Here you can rent and return VHS tapes.</p>
+		
+		<div style="border-style: solid; width: 300px;">
+			<form action="/login" method="POST">
+				Username: <input type="text" name="username"><br/>
+				Password: <input type="password" name="password"><br/>
+				<input type="submit" value="Login">
+			</form>
+		</div>
+		
+		<p th:text="${error}"></p>
+	</body>
+</html>

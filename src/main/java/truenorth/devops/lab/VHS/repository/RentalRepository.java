@@ -14,8 +14,8 @@ public interface RentalRepository extends JpaRepository<Rental, Long> {
 	public List<Rental> getRentals();
 	
 	@Query(value="SELECT * FROM rental WHERE rental_id = :id", nativeQuery=true)
-	public Rental getRentalById(@Param("id") int id);
+	public Rental getRentalById(@Param("id") long id);
 	
 	@Query(value="SELECT * FROM rental WHERE user_id = :id", nativeQuery=true)
-	public List<Rental> getRentalsByUserId(@Param("id") int id);
+	public List<Rental> getRentalsByUserId(@Param("id") long id);
 }

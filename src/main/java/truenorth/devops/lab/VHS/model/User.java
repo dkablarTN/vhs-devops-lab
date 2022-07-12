@@ -17,7 +17,7 @@ public class User {
 	@Id
 	@GeneratedValue
 	@Column(name = "user_id")
-	private int id;
+	private long id;
 	
 	@NotNull(message = "Username cannot be null.")
 	@Column(name = "username")
@@ -39,7 +39,7 @@ public class User {
 	public User() {
 	}
 
-	public User(int id, String username, String password, String role, boolean active, List<Rental> rentals) {
+	public User(long id, String username, String password, String role, boolean active, List<Rental> rentals) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -48,11 +48,11 @@ public class User {
 		this.rentals = rentals;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

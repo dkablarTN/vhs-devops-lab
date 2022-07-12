@@ -1,0 +1,44 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+
+	<body>
+		<header>
+			<p th:text="${username}"></p>
+			<form action="/api/vhs" method="POST">
+				<input type="submit" value="VHS list">
+			</form>
+			<form action="/" method="GET">
+				<input type="submit" value="Home">
+			</form>
+		</header>
+		
+		<div th:switch="${rentals.size()}">
+			<div th:case="0">
+				<h3>There are no rentals.</h3>
+			</div>
+			<div th:case="*">
+			<h1>List of rentals:</h1>
+			<ul>
+				<li th:each="rental : ${rentals}">
+					<div th:if="${rental.isExpired()}">
+						<span style="color: red;" th:text="${rental.toString()}"></span>
+						<p th:if="${rental.user.getUsername() == username}">
+							<a th:href="@{/api/vhs/return/{id}(id=${rental.getId()})}">Pay and return</a>
+						</p>
+					</div>
+					<div th:unless="${rental.isExpired()}">
+						<span th:text="${rental.toString()}"></span>
+						<p th:if="${rental.user.getUsername() == username}">
+							<a th:href="@{/api/vhs/return/{id}(id=${rental.getId()})}">Return</a>
+						</p>
+					</div>
+				</li>
+			</ul>
+			</div>
+		</div>
+	</body>
+</html>

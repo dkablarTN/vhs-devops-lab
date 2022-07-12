@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<h1>New VHS tape</h1>
+	
+	<form action="/api/vhs/new" method="POST">
+		Title: <input type="text" name="title">
+		<input type="submit" value="Submit">
+	</form>
+	
+	<p th:text="${error}"></p>
+	
+	<form action="/api/vhs" method="POST">
+		<input type="submit" value="Cancel">
+	</form>
+</body>
+
+</html>

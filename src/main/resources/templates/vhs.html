@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+
+	<body>
+		<header>
+			<p th:text="${username}"></p>
+			<form action="/api/rental" method="GET">
+				<input type="submit" value="Rental list">
+			</form>
+			<form action="/" method="GET">
+				<input type="submit" value="Home">
+			</form>
+		</header>
+		
+		<div th:switch="${vhs.size()}">
+			<div th:case="0">
+				<h3>There are no VHS tapes.</h3>
+			</div>
+			<div th:case="*">
+				<h1>List of VHS tapes:</h1>
+				<ul>
+					<li th:each="v : ${vhs}">
+						<div th:if="${v.getRental() == null}">
+							<a th:href="@{/api/vhs/rent/{id}(id=${v.getId()})}"><span th:text="${v.toString()}"></span></a>
+						</div>
+						<div th:unless="${v.getRental() == null}">
+							<p th:text="${v.toString()}"></p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<p th:text="${error}">
+		
+		<div th:if="${isAdmin}">
+			<form action="vhs/new" method="GET">
+				<input type="submit" value="Add">
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+
+	<body>
+		<h1>Profile page: <span th:text="${username}"></span></h1>
+		<h2 th:text="${role}"></h2>
+		
+		<p>Welcome to the VHS rental service. Here you can rent and return VHS tapes.</p>
+		
+		<form action="/api/vhs" method="POST">
+			<input type="submit" value="VHS list">
+		</form>
+		
+		<form action="/api/rental" method="GET">
+			<input type="submit" value="Rental list">
+		</form>
+		
+		<a href="/logout">Logout</a>
+	</body>
+</html>
