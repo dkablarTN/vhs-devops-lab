@@ -39,8 +39,7 @@ public class User {
 	public User() {
 	}
 
-	public User(long id, String username, String password, String role, boolean active, List<Rental> rentals) {
-		this.id = id;
+	public User(String username, String password, String role, boolean active, List<Rental> rentals) {
 		this.username = username;
 		this.password = password;
 		this.role = role;
@@ -86,5 +85,10 @@ public class User {
 
 	public void setRentals(List<Rental> rentals) {
 		this.rentals = rentals;
+	}
+
+	@Override
+	public String toString() {
+		return username;
 	}
 }
